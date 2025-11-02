@@ -32,7 +32,7 @@ class ExcelFileLoader(BaseModel, BaseLoader):
         Returns:
             value (str): The validated file path.
         """
-        if not Path(value).suffix in [".xlsx", ".xls"]:
+        if Path(value).suffix not in [".xlsx", ".xls"]:
             logger.error("Invalid file extension for Excel file.")
             raise ValueError("file_path must point to a xlsx file")
         return value
